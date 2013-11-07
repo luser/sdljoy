@@ -20,7 +20,9 @@ void list_joysticks()
 
 int main(int argc, char** argv)
 {
-  if (SDL_Init(SDL_INIT_JOYSTICK) < 0 ) {
+  // We need to initialize video, otherwise we won't receive joystick events. :(
+  // http://stackoverflow.com/questions/4890852/using-sdl-init-joystick-without-sdl-init-video
+  if (SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_VIDEO) < 0 ) {
     fprintf(stderr, "Couldn't initialize SDL: %s\n", SDL_GetError());
     return 1;
   }
