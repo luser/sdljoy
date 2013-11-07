@@ -54,7 +54,6 @@ int main(int argc, char** argv)
           break;
         */
       }
-      printf(".");
     }
     SDL_Delay(50);
   }
